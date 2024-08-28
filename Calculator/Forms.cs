@@ -18,7 +18,7 @@ public class Forms
             SNum = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter the operation");
             Operands = Console.ReadLine();
-            var result = op.Execute(Operands, FNum, SNum);
+            var result = op.Execute(FNum, SNum, Operands);
             Console.WriteLine($"The result is {result}");
             //op.Execute(Operands, FNum, SNum);
         }catch(Exception e){

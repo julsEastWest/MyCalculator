@@ -4,7 +4,7 @@ namespace Calculator;
 
 public class Operation
 {
-    public double Execute(string? Operands, double FNum, double SNum){
+    public double Execute(double FNum, double SNum, string? Operands){
         var result = Operands switch
         {
             "+" => Addition(FNum, SNum),
@@ -32,4 +32,5 @@ public class Operation
                 return FNum / SNum;
             }
     }
+
 }
