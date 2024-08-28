@@ -1,0 +1,35 @@
+
+
+namespace Calculator;
+
+public class Operation
+{
+    public double Execute(string? Operands, double FNum, double SNum){
+        var result = Operands switch
+        {
+            "+" => Addition(FNum, SNum),
+            "-" => Subtraction(FNum, SNum),
+            "*" => Multiplication(FNum, SNum),
+            "/" => Division(FNum, SNum),
+            _ => throw new ArgumentException("Invalid operand"), // default
+        };
+        return result;
+    
+    }
+    public double Addition(double FNum, double SNum){
+            return FNum + SNum;
+    }
+    public double Subtraction(double FNum, double SNum){
+            return FNum - SNum;
+    }
+    public double Multiplication(double FNum, double SNum){
+            return FNum * SNum;
+    }
+    public double Division(double FNum, double SNum){
+            if(SNum == 0){
+                throw new DivideByZeroException("Cannot divide by zero");
+            }else{
+                return FNum / SNum;
+            }
+    }
+}
