@@ -23,7 +23,7 @@ public class Tests
         var result = _operation.Addition(Fnum, Snum);
         Assert.That(result, Is.EqualTo(expected));
     }
-
+    [TestCase(5, 5, 0)]
     [TestCase(10, 9, 1)]
     public void Subtraction(double Fnum, double Snum, double expected)
     {
@@ -38,7 +38,7 @@ public class Tests
         Assert.That(result, Is.EqualTo(expected));
     }
 
-    [TestCase(5, 5, 1)]
+    [TestCase(10, 5, 2)]
     public void Division(double Fnum, double Snum, double expected)
     {
         var result = _operation.Division(Fnum, Snum);
@@ -46,16 +46,16 @@ public class Tests
     }
 
     [TestCase(5, 0)]
-    public void TestThrowHandling(double FNum, double SNum){
+    public void DivideByZero(double FNum, double SNum){
         Assert.Throws<DivideByZeroException>(() => _operation.Division(FNum, SNum)); //lambda expression
     }
 
     [TestCase(5, 5, "%")]
-    public void ThrowHandling(double Fnum, double Snum, string Operands){   
-        Assert.Throws<ArgumentException>(() => _operation.Execute(Fnum, Snum, Operands)); //lambda expression
+    public void InvalidOperationException(double Fnum, double Snum, string Operands){   
+        Assert.Throws<InvalidOperationException>(() => _operation.Execute(Fnum, Snum, Operands));
     }
     // note arrangements of paremeters are crucial 
-    // assert - checks whether the condition is true or verify the if code behaves as expected.
+    // assert - checks whether the condition is true or verify if the code behaves as expected.
     // Assert.AreEqual(expected, actual, message);
 
 }

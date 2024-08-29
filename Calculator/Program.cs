@@ -1,7 +1,6 @@
-﻿
-namespace Calculator;
+﻿namespace Calculator;
 
-public class Program{
+internal class Program{
     public static void Main(string[] args){
         Forms forms = new();
         forms.Inputs();

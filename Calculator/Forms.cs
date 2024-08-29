@@ -1,7 +1,6 @@
-
 namespace Calculator;
 
-public class Forms
+internal class Forms
 {
     private string? Operands; //'?' means that the variable can hold string or null.
     private double FNum;
@@ -12,12 +11,12 @@ public class Forms
         try{
              //Operation op = new Operation();
             Operation op = new(); // new expression
-            Console.WriteLine("Enter the first number");
+            Console.WriteLine("Enter the first number:");
             FNum = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter the second number");
+            Console.WriteLine("Enter the second number:");
             SNum = Convert.ToDouble(Console.ReadLine());
-            Console.WriteLine("Enter the operation");
-            Operands = Console.ReadLine();
+            Console.WriteLine("Enter the operation(please just enter the operand symbol):");
+            Operands = Console.ReadLine() ?? string.Empty; // ?? string.Empty Console.ReadLine() returns null returns null use string.Empty instead
             var result = op.Execute(FNum, SNum, Operands);
             Console.WriteLine($"The result is {result}");
             //op.Execute(Operands, FNum, SNum);
